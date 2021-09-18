@@ -187,7 +187,7 @@ steps:
         from_secret: registry_password
       username:
         from_secret: registry_username
-       template: registry.slr.ovh/drone-docker:${DRONE_TAG}-OS-ARCH
+      template: registry.slr.ovh/drone-docker:${DRONE_TAG}-OS-ARCH
 
 trigger:
   ref:
