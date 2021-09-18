@@ -77,15 +77,16 @@ steps:
   - name: publish
     image: plugins/docker:18
     settings:
+      repo: registry.slr.ovh/drone-docker
+      registry: registry.slr.ovh
       auto_tag: true
       auto_tag_suffix: linux-amd64
       daemon_off: false
       dockerfile: docker/docker/Dockerfile.linux.amd64
       password:
-        from_secret: docker_password
-      repo: plugins/docker
+        from_secret: registry_password
       username:
-        from_secret: docker_username
+        from_secret: registry_username
     when:
       event:
         exclude:
@@ -140,15 +141,16 @@ steps:
   - name: publish
     image: plugins/docker:18
     settings:
+      repo: registry.slr.ovh/drone-docker
+      registry: registry.slr.ovh
       auto_tag: true
       auto_tag_suffix: linux-arm64
       daemon_off: false
       dockerfile: docker/docker/Dockerfile.linux.arm64
       password:
-        from_secret: docker_password
-      repo: plugins/docker
+        from_secret: registry_password
       username:
-        from_secret: docker_username
+        from_secret: registry_username
     when:
       event:
         exclude:
