@@ -177,13 +177,16 @@ steps:
   - name: manifest
     image: plugins/manifest
     settings:
+      target: registry.slr.ovh/drone-docker
       auto_tag: true
       ignore_missing: true
+      platforms:
+        - linux/amd64
+        - linux/arm64
       password:
-        from_secret: docker_password
-      spec: docker/docker/manifest.tmpl
+        from_secret: registry_password
       username:
-        from_secret: docker_username
+        from_secret: registry_username
 
 trigger:
   ref:
